@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheep Shearing Game</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+  }
+  #sheep {
+    width: 200px;
+  }
+</style>
+</head>
+<body>
+<h1>Sheep Shearing Game</h1>
+<p>Click on the sheep to shear its fur!</p>
+<img id="sheep" src="sheep.png" alt="Sheep">
+<p id="score">Fur Collected: 0</p>
+
+<script>
+  let score = 0;
+
+  function shearSheep() {
+    score += 10;
+    document.getElementById('score').textContent = 'Fur Collected: ' + score;
+    document.getElementById('sheep').src = 'sheared_sheep.png';
+    document.getElementById('sheep').alt = 'Sheared Sheep';
+    setTimeout(function() {
+      document.getElementById('sheep').src = 'sheep.png';
+      document.getElementById('sheep').alt = 'Sheep';
+    }, 1000); // Change back to original image after 1 second
+  }
+
+  document.getElementById('sheep').addEventListener('click', shearSheep);
+</script>
+</body>
+</html>
